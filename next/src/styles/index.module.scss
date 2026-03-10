@@ -1,0 +1,82 @@
+@import '../styles/vars.scss';
+.hero_section{
+      margin-top: 20px;
+      border-radius: 40px;
+      padding: 80px;
+      background: $dark;
+      display: flex;
+      gap: 20px;
+      position: relative;
+      align-items: center;
+      overflow-y: hidden;
+      &_content{
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            max-width: 50%;
+            h1{
+                  font-size: 52px;
+                  color: $light;
+            }
+            p{
+                  font-size: 26px;
+                  color: white;
+            }
+            a{
+                  padding: 20px 40px;
+                  background: $second;
+                  font-size: 20px;
+                  font-weight: 800;
+                  color: $dark;
+                  width: fit-content;
+                  border-radius: 10px;
+            }
+      }
+      img{
+            position: absolute;
+            width: 30%;
+            height: auto;
+            bottom: -30%;
+            right: 0;
+      }
+}
+
+.ff_container{
+      margin-top: 50px;
+      display: flex;
+      gap: 10px;
+      .ff_card{
+            width: 20%;
+            border-radius: 20px;
+            background: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 20px;
+            position: relative;
+            h3{
+                  margin-bottom: 10px;
+            }
+            img{
+                  align-self: flex-end;
+            }
+      }
+}
+
+.catalog{
+      margin-top: 90px;
+      &_head{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            h2{
+                  font-size: 40px;
+            }
+            a{
+                  font-size: 36px;
+                  color: #BE5109;
+            }
+      }
+      
+}

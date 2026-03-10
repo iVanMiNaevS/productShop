@@ -1,0 +1,88 @@
+@import '../../styles/vars.scss';
+.header {
+	background: $dark;
+	padding: 10px 0px;
+	color: white;
+	.logo {
+		display: flex;
+		align-items: center;
+		width: 140px;
+		img{
+			width: 100%;
+		}
+	}
+	&__container {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		font-size: 18px;
+		a {
+			transition: 0.3s;
+		}
+		nav{
+			a:hover {
+				color: $light;
+			}
+			display: flex;
+			gap: 30px;
+			align-items: center;
+		}
+		.buttonLink.mob{
+			display: none;
+		}
+		.buttonLink:hover {
+			background: var(--grey10);
+		}
+		.active.buttonLink:hover{
+			background: var(--purple60);
+		}
+	}
+}
+.left{
+	display: flex;
+	gap: 20px;
+}
+.mobileMenuButton {
+	display: none;
+  background: none;
+  border: none;
+  color: var(--white);
+  font-size: 24px;
+  cursor: pointer;
+  padding: 5px;
+}
+
+@media (max-width:768px) {
+	.header{
+		position: relative;
+		.mobileMenuButton{
+			display: block;
+		}
+		&__container{
+			nav {
+				display: none;
+				&.active{
+					z-index: 4;
+					width: 100%;
+					background: $dark;
+					display: flex;
+					flex-direction: column;
+					padding: 10px 0px;
+					position: absolute;
+					bottom: 0;
+					left: 0;
+					transform: translateY(100%);
+				}
+			}
+			.buttonLink{
+				display: none;
+				&.activeMob{
+					display: flex;
+				}
+				&.activeMob.active{
+					background: var(--grey10);
+				}
+			}
+		}
+	}
+}
