@@ -37,6 +37,44 @@
 			background: var(--purple60);
 		}
 	}
+	.right{
+		display: flex;
+		gap: 20px;
+	}
+	.cart{
+		width: 60px;
+		height: 60px;
+		background: white;
+		border-radius: 100%;
+		padding: 10px;
+		border: none;
+		cursor: pointer;
+		transition: 0.3s;
+		img{
+			width: 100%;
+			height: auto;
+		}
+		&:hover{
+			background: $light;
+		}
+	}
+	.like{
+		width: 60px;
+		height: 60px;
+		background: white;
+		border-radius: 100%;
+		padding: 10px;
+		border: none;
+		cursor: pointer;
+		transition: 0.3s;
+		img{
+			width: 100%;
+			height: auto;
+		}
+		&:hover{
+			background: $light;
+		}
+	}
 }
 .left{
 	display: flex;

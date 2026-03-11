@@ -4,7 +4,7 @@ import {serialize} from "cookie"
 export default async function handler(req:NextApiRequest, res:NextApiResponse) {
   const { email, password } = req.body
 
-  const response = await fetch("http://localhost:1337/api/auth/local", {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/auth/local`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json"

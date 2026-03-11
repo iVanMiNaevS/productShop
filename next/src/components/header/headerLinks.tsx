@@ -33,10 +33,12 @@ export const HeaderLinks = ({links, setIsMenuOpen, isMenuOpen}: props) => {
 				})}
 			</nav>
 				{ user ? <div className={styles.right}>
-					<button className={styles.cart}>
-						<img src={'/cart.png'}/>
-					</button>
-						<div className={styles.profile}></div> 
+						<button className={styles.cart}>
+							<img src={'/cart.png'}/>
+						</button>
+						<button className={styles.like}>
+							<img src={'/like.png'}/>
+						</button> 
 					</div>
 					: 
 					<Link href={AppRouter.login} className={styles.link}>Войти</Link>

@@ -9,7 +9,6 @@ import {HeaderLinks} from "./headerLinks";
 export const Header = () => {
 	const nav = [
 		{text: "Главная", link: AppRouter.home},
-		{text: "О нас", link: AppRouter.about},
 		{text: "Каталог", link: AppRouter.catalog},
 	];
 	const [isMenuOpen, setIsMenuOpen] = useState(false);

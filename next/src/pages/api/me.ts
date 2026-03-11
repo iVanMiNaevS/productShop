@@ -8,7 +8,7 @@ export default async function handler(req:NextApiRequest, res:NextApiResponse ) 
     return res.status(401).json({ user: null })
   }
 
-  const response = await fetch("http://localhost:1337/api/users/me", {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/users/me`, {
     headers: {
       Authorization: `Bearer ${token}`
     }

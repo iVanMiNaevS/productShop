@@ -65,11 +65,13 @@
 
 .catalog{
       margin-top: 90px;
+      margin-bottom: 50px;
       &_head{
             display: flex;
             justify-content: space-between;
             align-items: center;
             gap: 20px;
+            margin-bottom: 40px;
             h2{
                   font-size: 40px;
             }
@@ -78,5 +80,51 @@
                   color: #BE5109;
             }
       }
-      
+      &_cards{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+      }
+      .card{
+            width: 300px;
+            padding: 20px;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            background: white;
+            gap: 10px;
+            align-items: center;
+            justify-content: center;
+            transition: 0.3s;
+            &:hover{
+                  transform: scale(1.01);
+            }
+            img{
+                  max-width: 200px;
+                  width: 100%;
+                  object-fit: cover;
+            }
+            h4, p{
+                  font-size: 28px;
+                  color: $dark;
+                  font-weight: 600;
+            }
+            p{
+                  font-size: 52px;
+                  color: black;
+            }
+            button{
+                  display: block;
+                  margin-top: auto;
+                  padding: 20px 40px;
+                  background: $second;
+                  font-size: 20px;
+                  font-weight: 800;
+                  color: $dark;
+                  width: 100%;
+                  border-radius: 10px;
+                  border: none;
+                  cursor: pointer;
+            }
+      }
 }

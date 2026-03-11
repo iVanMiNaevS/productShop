@@ -10,10 +10,6 @@ export const Footer = () => {
 			page: {text: "Главная", link: AppRouter.home},
 		},
 		{
-			page: {text: "О нас", link: AppRouter.about},
-			
-		},
-		{
 			page: {text: "Каталог", link: AppRouter.catalog},
 			
 		},	
