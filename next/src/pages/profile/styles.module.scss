@@ -1,0 +1,28 @@
+@import '../../styles/vars.scss';
+.title{
+      font-size: 52px;
+      margin-top: 30px;
+      margin-bottom: 40px;
+}
+
+.info{
+      min-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      p{
+            font-size: 28px;
+      }
+      button{
+            display: block;
+            padding: 20px 40px;
+            background: $second;
+            font-size: 20px;
+            font-weight: 800;
+            color: $dark;
+            width: 100%;
+            border-radius: 10px;
+            border: none;
+            cursor: pointer;
+      }
+}

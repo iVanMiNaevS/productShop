@@ -5,6 +5,8 @@ import { AppRouter } from '@/AppRouter'
 import Link from 'next/link'
 import { getObjects } from '@/services/getInfo'
 import { categoriesType, productsType } from '@/types/common'
+import { useSession } from '@/utils/hooks/useSession'
+import { useRouter } from 'next/router'
 
 
 interface props{
@@ -12,6 +14,21 @@ interface props{
       products: productsType
 }
 const index = (props: props) => {
+      const router = useRouter();
+      const {user} = useSession()
+      const addProductToUser = async (productId: number) => {
+            const res = await fetch("/api/cart/add", {
+                  method: "POST",
+                  headers: { "Content-Type": "application/json" },
+                  credentials: 'include',
+                  body: JSON.stringify({ productId }),
+            });
+
+            const data = await res.json();
+            alert(data.message || 'Продукт добавлен в корзину')
+            console.log(data);
+            return data
+      };
       return (
             <MainLayout>
                   <div className="container">
@@ -43,12 +60,21 @@ const index = (props: props) => {
                               </div>
                               <div className={styles.catalog_cards}>
                                     {props.products.data.map(card=>{
-                                          return <Link href={card.slug} className={styles.card}>
-                                                <img src={process.env.NEXT_PUBLIC_SERVER_URL + card.poster.url}/>
+                                          return <div onClick={()=>{router.push(AppRouter.catalog + '/' + card.slug)}} key={card.id} className={styles.card}>
+                                                <img src={process.env.NEXT_PUBLIC_SERVER_URL + card.poster.url} />
                                                 <h4>{card.title}</h4>
                                                 <p>{card.price}₽</p>
-                                                <button>+</button>
-                                          </Link>
+                                                <button onClick={(e)=>{
+                                                      e.stopPropagation()
+                                                      console.log(user)
+                                                      console.log('dfsdf')
+                                                      if(!user){
+                                                            router.push(AppRouter.login)
+                                                      }else{
+                                                            addProductToUser(card.id)
+                                                      }
+                                                }}>+</button>
+                                          </div>
                                     })}
                               </div>
                         </div>

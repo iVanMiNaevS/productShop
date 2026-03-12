@@ -3,17 +3,15 @@ import cookie from "cookie"
 
 export default async function handler(req:NextApiRequest, res:NextApiResponse ) {
   const { token } = cookie.parse(req.headers.cookie || "")
-
   if (!token) {
     return res.status(401).json({ user: null })
   }
 
-  const response = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/users/me`, {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/users/me?populate=products.poster`, {
     headers: {
       Authorization: `Bearer ${token}`
     }
   })
-
   if (!response.ok) {
     return res.status(401).json({ user: null })
   }

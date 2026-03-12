@@ -1,7 +1,8 @@
+import { user } from "@/types/common"
 import { useEffect, useState } from "react"
 
 export function useSession() {
-  const [user, setUser] = useState(null)
+  const [user, setUser] = useState<null | user>(null)
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {

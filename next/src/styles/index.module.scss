@@ -86,6 +86,7 @@
             gap: 20px;
       }
       .card{
+            cursor: pointer;
             width: 300px;
             padding: 20px;
             border-radius: 20px;
@@ -125,6 +126,10 @@
                   border-radius: 10px;
                   border: none;
                   cursor: pointer;
+                  &:hover{
+                        background: $dark;
+                        color: white;
+                  }
             }
       }
 }

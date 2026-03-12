@@ -115,4 +115,29 @@ const Page = () => {
 	);
 };
 
+export async function getServerSideProps(context:any){
+	const meRes = await fetch(`${process.env.NEXT_PUBLIC_NEXT}/api/me`, {
+		headers: {
+			cookie: context.req.headers.cookie || ""
+		}
+	})
+
+	const res = await meRes.json()
+		
+	if(res.user){
+		return {
+			redirect: {
+				destination: "/",
+				permanent: false,
+			},
+		}
+	}
+	return {
+		props:{
+
+		}
+	}
+	
+}
+
 export default Page;

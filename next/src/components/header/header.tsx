@@ -10,6 +10,7 @@ export const Header = () => {
 	const nav = [
 		{text: "Главная", link: AppRouter.home},
 		{text: "Каталог", link: AppRouter.catalog},
+		{text: "Профиль", link: AppRouter.profile, private: true},
 	];
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 	return (

@@ -5,6 +5,8 @@ import { getObjects, getStrapi } from "@/services/getInfo";
 import MainLayout from "@/components/MainLayout";
 import { categoriesType, productsType } from "@/types/common";
 import Link from "next/link";
+import { useSession } from "@/utils/hooks/useSession";
+import { AppRouter } from "@/AppRouter";
 
 interface props{
       categories: categoriesType
@@ -14,10 +16,22 @@ interface props{
 export default function ProductsPage(props: props) {
       const router = useRouter();
       const { category = "all" } = router.query;
-
+      const {user} = useSession()
       const [search, setSearch] = useState("");
       const [productsState, setProductsState] = useState(props.products.data);
+      const addProductToUser = async (productId: number) => {
+            const res = await fetch("/api/cart/add", {
+                  method: "POST",
+                  headers: { "Content-Type": "application/json" },
+                  credentials: 'include',
+                  body: JSON.stringify({ productId }),
+            });
 
+            const data = await res.json();
+            alert(data.message || 'Продукт добавлен в корзину')
+            console.log(data);
+            return data
+      };
       const changeCategory = async (cat: string) => {
             router.push({
                   pathname: "/products",
@@ -64,6 +78,12 @@ export default function ProductsPage(props: props) {
                         </div>
 
                         <div className={styles.tabs}>
+                              <button
+                                    onClick={() => changeCategory('all')}
+                                    className={`${styles.tab} ${'all' === category ? styles.active : ""}`}
+                              >
+                                    Все
+                              </button>
                               {props.categories.data.map((tab: any) => {
                                     return (
                                           <button
@@ -80,12 +100,19 @@ export default function ProductsPage(props: props) {
                         <div className={styles.grid}>
                               {productsState.length !== 0 ? productsState.map((card: any) => {
                                     return (
-                                          <Link href={card.slug} key={card.id} className={styles.card}>
+                                          <div onClick={()=>{router.push(AppRouter.catalog + "/" +card.slug)}} key={card.id} className={styles.card}>
                                                 <img src={process.env.NEXT_PUBLIC_SERVER_URL + card.poster.url} />
                                                 <h4>{card.title}</h4>
                                                 <p>{card.price}₽</p>
-                                                <button>+</button>
-                                          </Link>
+                                                <button onClick={(e)=>{
+                                                      e.stopPropagation()
+                                                      if(!user){
+                                                            router.push(AppRouter.login)
+                                                      }else{
+                                                            addProductToUser(card.id)
+                                                      }
+                                                }}>+</button>
+                                          </div>
                                     );
                               }) : <div>Ничего не найдено</div>}
                         </div>

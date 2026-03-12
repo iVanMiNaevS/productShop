@@ -1,5 +1,6 @@
 export interface productsType {
       data:{
+            id: number
             title: string;
             poster: {
                   url: string
@@ -10,6 +11,17 @@ export interface productsType {
       }[]
 }
 
+export interface product{
+      id: number
+      title: string;
+      poster: {
+            url: string
+      }
+      price: number;
+      rating: number;
+      slug: string;
+}
+
 export interface categoriesType {
       data:  {
             id: number;
@@ -18,4 +30,11 @@ export interface categoriesType {
             slug: string;
             icon: {url:string};
       }[],
+}
+
+export interface user {
+      id: number
+      username: string
+      email: string
+      createdAt: string
 }

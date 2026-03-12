@@ -1,0 +1,54 @@
+.title{
+      font-size: 52px;
+      margin-top: 30px;
+}
+.main{
+      display: flex;
+      gap: 10px;
+      min-height: 80vh;
+      margin-top: 30px;
+      h2{
+            word-wrap: none;
+            width: 20%;
+      }
+}
+.grid{
+      display: flex;
+      gap: 10px;
+      width: 100%;
+      flex-wrap: wrap;
+      align-items: center;
+      height: fit-content;
+}
+.card{
+      display: flex;
+      align-items: center;
+      height: fit-content;
+      gap: 20px;
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      width: 100%;
+      max-width: 500px;
+      img{
+            width: 100px;
+            height: auto;
+      }
+      p{
+            font-size: 26px;
+            font-weight: 600;
+      }
+      button{
+            margin-top: 0.5rem;
+            background: #ff4d4f;
+            color: #fff;
+            border: none;
+            padding: 0.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: 0.2s;
+            &:hover {
+                  background: #e33b3b;
+            }
+      }
+}

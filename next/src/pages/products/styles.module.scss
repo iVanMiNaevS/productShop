@@ -69,6 +69,7 @@
             align-items: center;
             justify-content: center;
             transition: 0.3s;
+            cursor: pointer;
             &:hover{
                   transform: scale(1.01);
             }
@@ -98,6 +99,11 @@
                   border-radius: 10px;
                   border: none;
                   cursor: pointer;
+                  transition: 0.3s;
+                  &:hover{
+                        background: $dark;
+                        color: white;
+                  }
             }
       }
 }
