@@ -40,7 +40,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${process.env.ADMIN_TOKEN}`,
       },
       body: JSON.stringify({ products: newProducts }),
     });

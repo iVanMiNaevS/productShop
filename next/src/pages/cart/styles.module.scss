@@ -10,6 +10,7 @@
       h2{
             word-wrap: none;
             width: 20%;
+            min-width: 200px;
       }
 }
 .grid{
@@ -50,5 +51,11 @@
             &:hover {
                   background: #e33b3b;
             }
+      }
+}
+@media (max-width: 768px) {
+      .main{
+            flex-direction: column-reverse;
+            justify-content: flex-end;
       }
 }

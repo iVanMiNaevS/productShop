@@ -36,7 +36,7 @@
             position: absolute;
             width: 30%;
             height: auto;
-            bottom: -30%;
+            bottom: -10vw;
             right: 0;
       }
 }
@@ -45,9 +45,11 @@
       margin-top: 50px;
       display: flex;
       gap: 10px;
+      flex-wrap: wrap;
       .ff_card{
-            width: 20%;
+            flex: 1 1 15%;
             border-radius: 20px;
+            min-width: 200px;
             background: white;
             display: flex;
             flex-direction: column;
@@ -87,7 +89,7 @@
       }
       .card{
             cursor: pointer;
-            width: 300px;
+            width: 25%;
             padding: 20px;
             border-radius: 20px;
             display: flex;
@@ -130,6 +132,43 @@
                         background: $dark;
                         color: white;
                   }
+            }
+      }
+}
+
+@media (max-width:1024) {
+      .catalog{
+            .card{
+                  width: 31%;
+            }
+      }
+}
+
+@media (max-width:768px) {
+      .catalog{
+            .card{
+                  width: 45%;
+                  h4{
+                        font-size: 24px;
+                  }
+                  p{
+                        font-size: 32px;
+                  }
+            }
+      }
+      .hero_section{
+            padding: 40px;
+            &_content{
+                  width: 100%;
+                  max-width: 100%;
+            }
+      }
+}
+@media (max-width: 500px) {
+      .catalog{
+            .card{
+                  width: 100%;
+                  
             }
       }
 }

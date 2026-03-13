@@ -107,3 +107,32 @@
             }
       }
 }
+@media (max-width:1024) {
+      .grid{
+            .card{
+                  width: 31%;
+            }
+      }
+}
+
+@media (max-width:768px) {
+      .grid{
+            .card{
+                  width: 45%;
+                  h4{
+                        font-size: 24px;
+                  }
+                  p{
+                        font-size: 32px;
+                  }
+            }
+      }
+}
+@media (max-width: 500px) {
+      .grid{
+            .card{
+                  width: 100%;
+                  
+            }
+      }
+}

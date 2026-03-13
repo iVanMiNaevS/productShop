@@ -35,8 +35,10 @@ export default function CartPage({products: init}:props) {
                                     {products.map((product) => (
                                           <div key={product.id} className={styles.card}>
                                                 <img src={process.env.NEXT_PUBLIC_SERVER_URL + product.poster.url} alt={product.title} />
-                                                <h4>{product.title}</h4>
-                                                <p>{product.price}₽</p>
+                                                <div className={styles.info}>
+                                                      <h4>{product.title}</h4>
+                                                      <p>{product.price}₽</p>
+                                                </div>
 
                                                 <button onClick={async () => {
                                                       const res = await fetch("/api/cart/remove", {
